@@ -1,4 +1,5 @@
 # Python Project Cookiecutter
+[![colt-jay](https://circleci.com/gh/colt-jay/pyproject-cookiecutter.svg?style=svg)](https://app.circleci.com/pipelines/github/colt-jay/pyproject-cookiecutter)
 
 🐍🍪 An opinionated template for streamlining python project creation.
 
