@@ -6,7 +6,6 @@
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
   "project_src": "{{ cookiecutter.project_slug.replace('-', '_') }}",
   "python_version": "3.9.1",
-  "poetry_version": "1.1.4",
   "use_pre_commit": "y",
   "use_circle_ci": "y",
   "_copy_without_render": [
