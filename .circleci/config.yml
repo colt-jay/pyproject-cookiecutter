@@ -1,0 +1,33 @@
+---
+version: 2.1
+
+commands:
+    init-poetry:
+        description: Checkout, install or load Poetry env, and cache on change.
+        steps:
+            - restore_cache:
+                  keys:
+                      - lock-{{ checksum "poetry.lock" }}
+            - run: poetry install
+            - save_cache:
+                  key: lock-{{ checksum "poetry.lock" }}
+                  paths:
+                      - /home/circleci/.cache/pypoetry/virtualenvs
+
+jobs:
+    test:
+        docker:
+            - image: circleci/python:3.8.5
+
+        steps:
+            - checkout
+            - init-poetry
+            - run: poetry run flake8
+            - run: poetry run pytest --junitxml="test-results/integration/results.xml" tests/integration/
+            - store_test_results:
+                  path: test-results
+
+workflows:
+    default:
+        jobs:
+            - test

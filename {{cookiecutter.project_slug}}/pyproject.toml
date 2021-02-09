@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "{{ cookiecutter.project_slug }}"
+version = "0.0.1rc1"
+description = "{{ cookiecutter.project_description }}"
+authors = ["{{ cookiecutter.full_name }} <{{ cookiecutter.email }}>"]
+exclude = ["tests/*"]
+
+[tool.poetry.dependencies]
+python = "{{ cookiecutter.python_version }}"
+{% if cookiecutter.use_pre_commit == 'y' %}pre-commit = "^2"{% endif %}
+
+[tool.poetry.dev-dependencies]
+flake8 = "*"
+mypy = "*"
+pytest = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
